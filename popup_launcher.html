@@ -9,11 +9,18 @@
     <button onclick="openPopup()">Open in Popup</button>
 
     <script>
-        function openPopup() {
-            const url = document.getElementById("popupUrl").value;
-            if (url) {
+        // Function to get query parameter from URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Open popup with the given URL
+        function openPopup(url) {
+            const popupUrl = url || document.getElementById("popupUrl").value;
+            if (popupUrl) {
                 window.open(
-                    url,
+                    popupUrl,
                     "PopupWindow",
                     "width=800,height=600,menubar=no,toolbar=no,location=no,status=no,scrollbars=yes,resizable=yes"
                 );
@@ -21,6 +28,15 @@
                 alert("Please enter a valid URL.");
             }
         }
+
+        // On page load
+        window.onload = function () {
+            const paramUrl = getQueryParam("url");
+            if (paramUrl) {
+                document.getElementById("popupUrl").value = paramUrl;
+                openPopup(paramUrl);
+            }
+        };
     </script>
 </body>
 </html>
