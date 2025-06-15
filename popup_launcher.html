@@ -32,8 +32,9 @@
         // On page load
         window.onload = function () {
             const paramUrl = getQueryParam("url");
+            console.log(paramUrl);
             if (paramUrl) {
-                document.getElementById("popupUrl").value = paramUrl;
+                //document.getElementById("popupUrl").value = paramUrl;
                 openPopup(paramUrl);
             }
         };
