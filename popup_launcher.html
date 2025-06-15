@@ -4,9 +4,12 @@
     <title>Popup Launcher</title>
 </head>
 <body>
-    <label for="popupUrl">Enter URL:</label>
-    <input type="text" id="popupUrl" placeholder="https://www.example.com" style="width: 300px;" />
-    <button onclick="openPopup()">Open in Popup</button>
+    <div style="display:none">
+         <label for="popupUrl">Enter URL:</label>
+        <input type="text" id="popupUrl" placeholder="https://www.example.com" style="width: 300px;" />
+        <button onclick="openPopup()">Open in Popup</button>
+    </div>
+   
 
     <script>
         // Function to get query parameter from URL
