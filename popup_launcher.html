@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Popup Launcher</title>
+</head>
+<body>
+    <label for="popupUrl">Enter URL:</label>
+    <input type="text" id="popupUrl" placeholder="https://www.example.com" style="width: 300px;" />
+    <button onclick="openPopup()">Open in Popup</button>
+
+    <script>
+        function openPopup() {
+            const url = document.getElementById("popupUrl").value;
+            if (url) {
+                window.open(
+                    url,
+                    "PopupWindow",
+                    "width=800,height=600,menubar=no,toolbar=no,location=no,status=no,scrollbars=yes,resizable=yes"
+                );
+            } else {
+                alert("Please enter a valid URL.");
+            }
+        }
+    </script>
+</body>
+</html>
