@@ -22,12 +22,22 @@
         function openPopup(url) {
             const popupUrl = url || document.getElementById("popupUrl").value;
             if (popupUrl) {
-                window.open(
+              const popup = window.open(
                     popupUrl,
                     "PopupWindow",
                     "width=800,height=600,menubar=no,toolbar=no,location=no,status=no,scrollbars=yes,resizable=yes"
                 );
-                //window.close();
+                
+                if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+                    console.log('Popups are blocked.');
+                  } 
+                else
+                {
+                   window.close(); 
+                }
+                
+
+                
             } else {
                 alert("Please enter a valid URL.");
             }
